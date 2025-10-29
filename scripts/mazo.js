@@ -1,3 +1,20 @@
+const DECK_IMAGES = [
+  'images/reversoCarta1.jpg',
+  'images/reversoCarta2.jpg',
+  'images/reversoCarta3.jpg',
+  'images/reversoCarta4.jpg',
+]
+
+function _pickDeckImage(deckName) {
+  if(!deckName || DECK_IMAGES.length === 0) {
+    return ''
+  }
+
+  const sum = Math.floor(Math.random()* DECK_IMAGES.length)
+
+  return DECK_IMAGES[sum % DECK_IMAGES.length]
+}
+
 class Mazo {
   #cartas; // Colección de cartas del mazo
   #numeroCartas; // Numero de cartas del mazo
@@ -92,16 +109,22 @@ class Mazo {
 	Métodos para dibujar el mazo en pantalla
 	*/
   render(zone) {
-    let str = "/----------------\\\n";
-    str += "|////////////////|\n";
-    str += "|////////////////|\n";
-    str += "|////////////////|\n";
-    str += "|////////////////|\n";
-    str += "|////////////////|\n";
-    str += "|////////////////|\n";
-    str += "\\----------------/\n";
+    zone.innerHTML = '';
 
-    zone.innerText = str;
-    return;
+    const cont = document.createElement('div')
+    cont.className = 'deck-container'
+
+    const img = document.createElement('img')
+    img.src = _pickDeckImage(this.#nombre);
+    img.alt ='Imagen del mazo ' , this.#nombre;
+    img.className = 'deck-icon';
+
+    const nombreDeck = document.createElement('h2')
+    nombreDeck.textContent = this.#nombre;
+
+    cont.appendChild(img)
+    cont.appendChild(nombreDeck)
+
+    zone.appendChild(cont)
   }
 }
