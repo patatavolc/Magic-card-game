@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic - juego de cartas</title>
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Cargar las clases primero, luego magic.js y por último la UI -->
+    <script src="./scripts/carta.js"></script>
+    <script src="./scripts/mazo.js"></script>
+    <script src="./scripts/jugador.js"></script>
+    <script src="./scripts/ui.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Duelo entre Jugadores</h1>
+    </header>
+    <main>
+        <section class="jugadores">
+          <div class="player-zone">
+            <div class="player-zone-info" id="player0-info"></div>
+            <div class="player-deck-zone" id="player0-deck"></div>
+          </div>
+            <button class="buttons-sacar-carta" 
+            id="button-player0-zone">
+            Sacar carta
+          </button>
+        </section>
+
+        <section class="game-zone">
+          <div id="player0-card"></div>
+          <button id="button-fight">Pelear</button>
+          <div id="results"></div>
+          <div id="player1-card"></div>
+        </section>
+
+        <section class="jugadores">
+          <button class="buttons-sacar-carta" 
+          id="button-player1-zone">
+          Sacar carta
+        </button>
+          <div class="player-zone">
+            <div class="player-deck-zone" id="player1-deck"></div>
+            <div class="player-deck-zone" id="player1-deck"></div>
+            <div class="player-zone-info" id="player1-info"></div>
+          </div>
+        </section>
+    </main>
+</body>
+</html>
